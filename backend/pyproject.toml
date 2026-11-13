@@ -1,0 +1,42 @@
+[project]
+name = "analitica-sorteo-backend"
+version = "0.1.0"
+description = "Plataforma de análisis estadístico y evaluación predictiva de sorteos"
+requires-python = ">=3.11"
+dependencies = [
+  "fastapi>=0.110,<1.0",
+  "uvicorn[standard]>=0.29",
+  "pydantic>=2.6",
+  "pydantic-settings>=2.2",
+  "sqlalchemy>=2.0.29",
+  "alembic>=1.13",
+  "psycopg[binary]>=3.1.18",
+  "pandas>=2.2",
+  "numpy>=1.26",
+  "scipy>=1.12",
+  "statsmodels>=0.14.1",
+  "openpyxl>=3.1",
+  "python-multipart>=0.0.9",
+  "pyjwt>=2.8",
+  "bcrypt>=4.1",
+  "email-validator>=2.1",
+]
+
+[project.optional-dependencies]
+dev = ["pytest>=8.0", "httpx>=0.27", "pytest-cov>=5.0", "ruff>=0.4"]
+
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools.packages.find]
+include = ["app*"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-q"
+filterwarnings = ["ignore::DeprecationWarning"]
+
+[tool.ruff]
+line-length = 110
+target-version = "py311"
